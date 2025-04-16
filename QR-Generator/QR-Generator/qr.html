@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="qr.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"> QR Code Generator</h1>
+    </div>
+  </header>
+
+  <main class="centered-main">
+    <div class="qr-wrapper">
+      <div class="left-panel">
+        <h2>Plain Text QR Code</h2>
+        <label for="inp">Data</label>
+        <textarea id="inp" placeholder="Enter your text here"></textarea>
+        <div class="actions">
+          <span id="refresh">Refresh</span>
+        </div>
+      </div>
+      <div class="right-panel">
+        <div class="gear-icon">⚙️</div>
+        <div class="qr-box">
+          <img id="qr" alt="QR Code"/>
+        </div>
+        <a id="download" download="qr_code.png">⬇️ Download</a>
+      </div>
+    </div>
+
+    <section class="about-section">
+      <h3>About This Tool</h3>
+      <p>
+        This QR Code Generator allows you to quickly convert any text input into a QR code using a reliable public API.
+        You can instantly download your QR code and use it on websites, posters, products, or wherever you need.
+        Built with love using HTML, CSS, and JavaScript ❤️.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 QR Generator Made by Sambit D Swain| All rights reserved.</p>
+  </footer>
+
+  <script>
+    const input = document.getElementById("inp");
+    const img = document.getElementById("qr");
+    const refresh = document.getElementById("refresh");
+    const download = document.getElementById("download");
+    let previousInput = "";
+
+    function generateQR() {
+      const value = input.value.trim();
+      if (!value || value === previousInput) return;
+
+      const apiURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}`;
+      img.src = apiURL;
+      previousInput = value;
+
+      img.onload = () => {
+        fetch(apiURL)
+          .then(res => res.blob())
+          .then(blob => {
+            const objectURL = URL.createObjectURL(blob);
+            download.href = objectURL;
+            download.download = "qr_code.png";
+          });
+      };
+    }
+
+    input.addEventListener("input", generateQR);
+    refresh.addEventListener("click", () => {
+      input.value = "";
+      img.src = "";
+      previousInput = "";
+      download.removeAttribute("href");
+    });
+  </script>
+</body>
+</html>
