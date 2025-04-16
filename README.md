@@ -16,7 +16,8 @@ A sleek, professional QR Code generator built using **HTML + CSS + JavaScript**.
 
 ## 📷 Screenshot
 
-![QR Generator UI](preview.png)
+![Screenshot 2025-04-16 161849](https://github.com/user-attachments/assets/5b5dfc90-533f-4483-aeb2-c2a3fb9710d9)
+
 
 ---
 
