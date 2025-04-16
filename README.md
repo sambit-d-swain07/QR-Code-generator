@@ -1,2 +1,25 @@
-# QR-Code-generator
- A professional QR Code Generator built with HTML, CSS, and JavaScript. Generate QR codes in real-time, download them instantly, and enjoy a clean, responsive interface. 100% frontend — no backend needed.
+# QR Code Generator
+
+A sleek, professional QR Code generator built using **HTML + CSS + JavaScript**. Quickly convert text into scannable QR codes and download them directly to your device.
+
+---
+
+## 🚀 Features
+
+- ✅ Real-time QR Code generation
+- ✅ Clean, responsive UI
+- ✅ Built-in download functionality
+- ✅ Mobile and desktop friendly
+- ✅ Protected with a strict proprietary license
+
+---
+
+## 📷 Screenshot
+
+![QR Generator UI](preview.png)
+
+---
+
+## 📂 Project Structure
+
+
